@@ -8,35 +8,9 @@
 
 import UIKit
 
-class HTTPService: Service {    
-    // **************** GET ****************
-//    func get(url urlPath:String, parameters:[String: String]?, headerValues:[String: String]?) {
-//        request(urlPath, .GET, parameters, headerValues);
-//    }
-//
-//    func get(url urlPath:String, parameters:[String: String]?) {
-//        get(url: urlPath, parameters: parameters, headerValues: nil)
-//    }
-//
-//    func get(url urlPath:String)  {
-//        get(url: urlPath, parameters: nil);
-//    }
+class HTTPService: Service {
     
-    
-    
-    // **************** POST ****************
-//    func post(url urlPath:String, parameters:[String: String]?, headerValues:[String: String]?) {
-//        request(urlPath, .POST, parameters, headerValues);
-//    }
-//
-//    func post(url urlPath:String, parameters:[String: String]?) {
-//        post(url: urlPath, parameters: parameters, headerValues: nil)
-//    }
-//
-//    func post(url urlPath:String)  {
-//        post(url: urlPath, parameters: nil);
-//    }
-    
+    // PUBLIC
     public func request(route:Route, parameters:[String: String]? = nil, headerValues:[String: String]? = nil) {
         requestRoute(route, parameters, headerValues);
     }

@@ -8,46 +8,152 @@
 
 import Foundation
 
-class InjectionManager {
-    static let instance:InjectionManager = InjectionManager()
+class InjectionManager: InjectionManagerProtocol {
+    private enum ProtocolStatus {
+        case PROTOCOL(instance:InjectionProtocol)
+        case PROTOCOL_WAIT(className:String)
+        case PROTOCOL_NONE
+    }
+    
+    static let instance:InjectionManagerProtocol = InjectionManager()
     
     private init() {}
     
+    // [className:Instance]
     private var data:[String: InjectionProtocol] = [:]
     
+    // [className:wait this class [forKey:InjectionProtocol]]
+    private var dataWait:[String: [(String, InjectionProtocol)]] = [:]
+    
     public func injection(injector:InjectionProtocol) {
+        var isInjection:Bool = true
+        
         let property = Mirror(reflecting: injector).children
+        
+        print("---------------- \(injector) ----------------")
         
         for (key, value) in property {
             let valueType = type(of: value)
             
             guard let forKey = key else { continue }
             
-            guard let inj =  getInjection(valueType) else { continue }
+            // init injection instance
+            let injResult = getInjection(valueType)
             
-            (injector as! NSObject).setValue(inj, forKey: forKey)
+            switch(injResult) {
+                case .PROTOCOL_NONE:
+                    continue
+                case .PROTOCOL(let instance):
+                    (injector as! NSObject).setValue(instance, forKey: forKey)
+                case .PROTOCOL_WAIT(let className):
+                    addWait(className, forKey, injector)
+                
+                    isInjection = false
+            }
+        }
+    
+        if (isInjection) {
+            (injector as? InjectionHandlerProtocol)?.onInjection()
         }
     }
     
-    private func getInjection(_ opt: Any.Type) -> InjectionProtocol? {
-        let className = (opt as Optional).subjectClassName
+    public func registerInjection(injection:InjectionProtocol) {
+        let className = getInjectionClassName(injection)
+        var dispatch = [InjectionProtocol]()
         
-        guard let cls = NSClassFromString(className) as? NSObject.Type else { return nil }
-        
-        if cls.self is InjectionProtocol.Type {
-            var result = data[className]
-            
-            if result == nil {
-                result = cls.init() as? InjectionProtocol
+        if let injectors = dataWait[className] {
+            for (forKey, injector) in injectors {
+                (injector as! NSObject).setValue(injection, forKey: forKey)
                 
-                data[className] = result
-                
-                print("InjectionManager: create new Injection  - \(className)")
+                dispatch.append(injector)
             }
             
-            return result
+            dataWait.removeValue(forKey: className)
+            
+            dispatchInjection(dispatch)
+        }
+    }
+    
+    private func getInjection(_ opt: Any.Type) -> ProtocolStatus {
+        var className = (opt as Optional).subjectClassName
+        
+        if !className.isPrefix(value: "Swift") {
+            guard let cls = NSClassFromString(className) else {
+                className = className.slice(from: ".", removePrefixes: true)
+                
+                guard let cls = NSClassFromString(className) else {
+                    return .PROTOCOL_NONE
+                }
+                
+                return initInjection(cls)
+            }
+            
+            
+            return initInjection(cls)
         }
         
-        return nil
+        return .PROTOCOL_NONE
+    }
+    
+    private func initInjection(_ cls: AnyClass) -> ProtocolStatus {
+        let className:String = String(describing: cls)
+        
+        var result = data[className]
+
+        if result == nil {
+            if (cls is InjectionInstanceProtocol.Type) {
+                return .PROTOCOL_WAIT(className: className)
+            }
+            
+            result = (cls as! NSObject.Type).init() as? InjectionProtocol
+            
+            addData(instance: result!)
+        }
+
+        return .PROTOCOL(instance:result!)
+    }
+    
+    
+    
+    
+    private func addWait(_ className: String, _ forKey: String, _ injector: InjectionProtocol) {
+        if (dataWait[className] == nil) {
+            dataWait[className] = [(String, InjectionProtocol)]()
+        }
+        
+        dataWait[className]?.append((forKey, injector))
+    }
+    
+    private func addData(instance: InjectionProtocol) {
+        let className = getInjectionClassName(instance)
+        
+        if (data[className] != nil) { return }
+        
+        data[className] = instance
+    }
+    
+    
+    private func dispatchInjection(_ injectors: [InjectionProtocol]) {
+        for injector in injectors {
+            dispatchInjection(injector)
+        }
+    }
+    
+    private func dispatchInjection(_ injector: InjectionProtocol) {
+        for (_, wait) in dataWait {
+            for (_, instance) in wait {
+                if (injector.isEqual(instance)) {
+                    return
+                }
+            }
+        }
+        
+        (injector as? InjectionHandlerProtocol)?.onInjection()
+    }
+    
+    
+    
+    private func getInjectionClassName(_ instance:InjectionProtocol) -> String {
+        return String(describing: Mirror(reflecting: instance).subjectType)
     }
 }

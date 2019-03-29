@@ -10,6 +10,10 @@
 		FA08E0FB224A2801007C4143 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08E0FA224A2801007C4143 /* String.swift */; };
 		FA08E0FD224A30CD007C4143 /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08E0FC224A30CD007C4143 /* StringProtocol.swift */; };
 		FA08E0FF224A4B4B007C4143 /* InjectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08E0FE224A4B4B007C4143 /* InjectionManager.swift */; };
+		FA280BC4224C1E8D00BBA363 /* ClientDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA280BC3224C1E8D00BBA363 /* ClientDataService.swift */; };
+		FA280BC6224C1EB500BBA363 /* ProfileDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA280BC5224C1EB500BBA363 /* ProfileDataService.swift */; };
+		FA44F012224D8429008FAF13 /* Client+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44F010224D8429008FAF13 /* Client+CoreDataClass.swift */; };
+		FA44F013224D8429008FAF13 /* Client+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44F011224D8429008FAF13 /* Client+CoreDataProperties.swift */; };
 		FA65C7C12242E8670036123A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65C7C02242E8670036123A /* AppDelegate.swift */; };
 		FA65C7C32242E8670036123A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65C7C22242E8670036123A /* LoginView.swift */; };
 		FA65C7C62242E8670036123A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA65C7C42242E8670036123A /* Main.storyboard */; };
@@ -31,7 +35,10 @@
 		FAFAA8EE2248F1B90053692D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAA8ED2248F1B90053692D /* Model.swift */; };
 		FAFAA8F02248F1FD0053692D /* ControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAA8EF2248F1FD0053692D /* ControllerProtocol.swift */; };
 		FAFAA8F32248FDC60053692D /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAA8F22248FDC60053692D /* Injection.swift */; };
-		FAFAA8F52248FDEF0053692D /* InjectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAA8F42248FDEF0053692D /* InjectionProtocol.swift */; };
+		FAFDCC15224B88AE000723DE /* client.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFDCC13224B88AE000723DE /* client.xcdatamodeld */; };
+		FAFDCC39224B8D93000723DE /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFDCC38224B8D93000723DE /* DataService.swift */; };
+		FAFDCC3C224B9016000723DE /* InjectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFDCC3B224B9016000723DE /* InjectionProtocol.swift */; };
+		FAFDCC3E224B9039000723DE /* InjectionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFDCC3D224B9039000723DE /* InjectionManagerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +62,10 @@
 		FA08E0FA224A2801007C4143 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		FA08E0FC224A30CD007C4143 /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		FA08E0FE224A4B4B007C4143 /* InjectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionManager.swift; sourceTree = "<group>"; };
+		FA280BC3224C1E8D00BBA363 /* ClientDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDataService.swift; sourceTree = "<group>"; };
+		FA280BC5224C1EB500BBA363 /* ProfileDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataService.swift; sourceTree = "<group>"; };
+		FA44F010224D8429008FAF13 /* Client+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA44F011224D8429008FAF13 /* Client+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA65C7BD2242E8670036123A /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA65C7C02242E8670036123A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA65C7C22242E8670036123A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -82,7 +93,10 @@
 		FAFAA8ED2248F1B90053692D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FAFAA8EF2248F1FD0053692D /* ControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerProtocol.swift; sourceTree = "<group>"; };
 		FAFAA8F22248FDC60053692D /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
-		FAFAA8F42248FDEF0053692D /* InjectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionProtocol.swift; sourceTree = "<group>"; };
+		FAFDCC14224B88AE000723DE /* client.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = client.xcdatamodel; sourceTree = "<group>"; };
+		FAFDCC38224B8D93000723DE /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		FAFDCC3B224B9016000723DE /* InjectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectionProtocol.swift; sourceTree = "<group>"; };
+		FAFDCC3D224B9039000723DE /* InjectionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionManagerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +147,7 @@
 		FA65C7BF2242E8670036123A /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDCC12224B8871000723DE /* data */,
 				FAB0FC1622497CC400FD8C22 /* extension */,
 				FAFAA8F12248FD1A0053692D /* dependency */,
 				FAFAA8EC2248F1AA0053692D /* model */,
@@ -189,6 +204,7 @@
 		FA8F4CE52246646E0021BD4C /* service */ = {
 			isa = PBXGroup;
 			children = (
+				FAFDCC37224B8D7C000723DE /* data */,
 				FACDCDFC2247D4910073B9C6 /* auth */,
 				FA8F4CEF22466C3E0021BD4C /* http */,
 				FA8F4CED22466C170021BD4C /* Service.swift */,
@@ -260,11 +276,48 @@
 		FAFAA8F12248FD1A0053692D /* dependency */ = {
 			isa = PBXGroup;
 			children = (
-				FAFAA8F22248FDC60053692D /* Injection.swift */,
-				FAFAA8F42248FDEF0053692D /* InjectionProtocol.swift */,
+				FAFDCC3A224B8FBE000723DE /* injection */,
 				FA08E0FE224A4B4B007C4143 /* InjectionManager.swift */,
+				FAFDCC3D224B9039000723DE /* InjectionManagerProtocol.swift */,
 			);
 			path = dependency;
+			sourceTree = "<group>";
+		};
+		FAFDCC12224B8871000723DE /* data */ = {
+			isa = PBXGroup;
+			children = (
+				FAFDCC41224BB77A000723DE /* model */,
+				FAFDCC13224B88AE000723DE /* client.xcdatamodeld */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		FAFDCC37224B8D7C000723DE /* data */ = {
+			isa = PBXGroup;
+			children = (
+				FAFDCC38224B8D93000723DE /* DataService.swift */,
+				FA280BC3224C1E8D00BBA363 /* ClientDataService.swift */,
+				FA280BC5224C1EB500BBA363 /* ProfileDataService.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		FAFDCC3A224B8FBE000723DE /* injection */ = {
+			isa = PBXGroup;
+			children = (
+				FAFAA8F22248FDC60053692D /* Injection.swift */,
+				FAFDCC3B224B9016000723DE /* InjectionProtocol.swift */,
+			);
+			path = injection;
+			sourceTree = "<group>";
+		};
+		FAFDCC41224BB77A000723DE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				FA44F010224D8429008FAF13 /* Client+CoreDataClass.swift */,
+				FA44F011224D8429008FAF13 /* Client+CoreDataProperties.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,15 +452,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFAA8F32248FDC60053692D /* Injection.swift in Sources */,
+				FAFDCC3C224B9016000723DE /* InjectionProtocol.swift in Sources */,
+				FA44F013224D8429008FAF13 /* Client+CoreDataProperties.swift in Sources */,
 				FAFAA8E92248E28B0053692D /* RegisterView.swift in Sources */,
 				FA08E0FF224A4B4B007C4143 /* InjectionManager.swift in Sources */,
 				FA65C7C32242E8670036123A /* LoginView.swift in Sources */,
 				FA8F4CE822466B330021BD4C /* LoginController.swift in Sources */,
+				FAFDCC39224B8D93000723DE /* DataService.swift in Sources */,
 				FA8F4CEC22466BA20021BD4C /* Controller.swift in Sources */,
+				FAFDCC15224B88AE000723DE /* client.xcdatamodeld in Sources */,
 				FACDCE03224828540073B9C6 /* Route.swift in Sources */,
+				FA280BC4224C1E8D00BBA363 /* ClientDataService.swift in Sources */,
 				FACDCDFE2247D4A10073B9C6 /* AuthService.swift in Sources */,
+				FA44F012224D8429008FAF13 /* Client+CoreDataClass.swift in Sources */,
 				FAB0FC1822497CF500FD8C22 /* Optional.swift in Sources */,
-				FAFAA8F52248FDEF0053692D /* InjectionProtocol.swift in Sources */,
 				FA08E0FD224A30CD007C4143 /* StringProtocol.swift in Sources */,
 				FAFAA8EE2248F1B90053692D /* Model.swift in Sources */,
 				FA8F4CF32246C86C0021BD4C /* Rest.swift in Sources */,
@@ -415,7 +473,9 @@
 				FA08E0FB224A2801007C4143 /* String.swift in Sources */,
 				FAFAA8F02248F1FD0053692D /* ControllerProtocol.swift in Sources */,
 				FAFAA8EB2248E2B00053692D /* RegisterController.swift in Sources */,
+				FA280BC6224C1EB500BBA363 /* ProfileDataService.swift in Sources */,
 				FACDCE002247DC0D0073B9C6 /* HTTPService.swift in Sources */,
+				FAFDCC3E224B9039000723DE /* InjectionManagerProtocol.swift in Sources */,
 				FA8F4CEA22466B4B0021BD4C /* View.swift in Sources */,
 				FA8F4CEE22466C170021BD4C /* Service.swift in Sources */,
 			);
@@ -746,6 +806,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAFDCC13224B88AE000723DE /* client.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAFDCC14224B88AE000723DE /* client.xcdatamodel */,
+			);
+			currentVersion = FAFDCC14224B88AE000723DE /* client.xcdatamodel */;
+			path = client.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA65C7B52242E8670036123A /* Project object */;
 }

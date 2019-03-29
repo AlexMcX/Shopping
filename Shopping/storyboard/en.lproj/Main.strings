@@ -1,0 +1,18 @@
+
+/* Class = "UITextField"; text = "test@gmail.com"; ObjectID = "4HJ-oH-lDN"; */
+"4HJ-oH-lDN.text" = "test@gmail.com";
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "9WI-Dj-RTA"; */
+"9WI-Dj-RTA.text" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "PWS-Vm-ebN"; */
+"PWS-Vm-ebN.normalTitle" = "Sign in";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "ky6-mu-dDW"; */
+"ky6-mu-dDW.text" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "ph5-nR-42q"; */
+"ph5-nR-42q.normalTitle" = "Register";
+
+/* Class = "UITextField"; text = "123"; ObjectID = "sMa-63-tGR"; */
+"sMa-63-tGR.text" = "123";

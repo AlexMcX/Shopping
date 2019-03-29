@@ -7,20 +7,12 @@
 //
 import Foundation
 
-class AuthService: HTTPService {
-//    override init() {
-//        print("*-*-*-**-*-")
-//    }
-    
-    override init() {
-        super.init()
-        print("AuthService:init")
+class AuthService: HTTPService {    
+    override func onInit() {
+//        print("AuthService:init")
     }
     
-    required init?(coder decoder: NSCoder) {
-        super.init()
-    }
-    
+    // PUBLIC
     public func basic(route:Route, username:String, password:String) {
         let loginString:String = String(format: "%@:%@", username, password)
         let loginData:Data = loginString.data(using: String.Encoding.utf8)!

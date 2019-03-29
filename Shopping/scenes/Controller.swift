@@ -9,24 +9,20 @@
 //import Foundation
 //import UIKit
 
-class Controller: Injection, ControllerProtocol {
+class Controller: Injection, ControllerProtocol, InjectionHandlerProtocol {
     weak private var view:View!;
     
     required init(view:View) {
         self.view = view;
         
         super.init()
-        
-        InjectionManager.instance.injection(injector: self)
-        
-        onInit()
     }
     
     deinit {
         view = nil
     }
     
-    func onInit() {
-        
+    func onInjection() {
+        print("onInjection \(String(describing: self))")
     }
 }

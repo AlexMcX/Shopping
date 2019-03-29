@@ -11,7 +11,7 @@ extension Optional {
         get {
             let description:String = String(describing: self)
             
-            return description.slice(from: "<", to: ">", removePrefixes: true)
+            return description.slice(from: "<", to: ">")
         }
     }
 }

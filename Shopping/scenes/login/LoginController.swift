@@ -9,10 +9,14 @@
 import Foundation
 
 class LoginController: Controller {
-    @objc dynamic var aurhService:AuthService!
-    @objc dynamic var httpServce:HTTPService!
+//    @objc dynamic var aurhService:AuthService!
+//    @objc dynamic var httpServce:HTTPService!
     
-    let testInt:Int? = nil
+    
+    
+    @objc dynamic var clientService:ClientDataService!
+    
+    var testInt:Int!
     
     override func onInit() {
         

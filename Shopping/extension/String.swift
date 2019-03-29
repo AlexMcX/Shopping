@@ -18,20 +18,36 @@ extension String {
      
              return - "Project.Service"
      */
-    func slice(from:String, to:String, removePrefixes:Bool = false) -> String {
-        var result:String = self;
-        
+    func slice(from:String, to:String, removePrefixes:Bool = true) -> String {
         guard let sIndex = self.index(of: from),
               let eIndex = self.endIndex(of: to)
         else { return self }
         
-        result = self[sIndex..<eIndex]
+        var result:String = self[sIndex..<eIndex]
         
         if removePrefixes {
             result = result[1..<result.count - 1]
         }
         
         return result;
+    }
+    
+    func slice(from:String, removePrefixes:Bool = true) -> String {
+        guard let sIndex = self.index(of: from) else { return self }
+
+        var result:String = self[sIndex..<self.endIndex]
+        
+        if removePrefixes {
+            result = result[1..<result.count]
+        }
+
+        return result
+    }
+    
+    func isPrefix(value:String) -> Bool {
+        guard index(of: value) != nil else { return false }
+        
+        return true
     }
     
     subscript (value: Range<Int>) -> String {
