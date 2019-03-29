@@ -6,23 +6,22 @@
 //  Copyright © 2019 Alexey Oleksandrovich. All rights reserved.
 //
 
-//import Foundation
-//import UIKit
+import Foundation
 
-class Controller: Injection, ControllerProtocol, InjectionHandlerProtocol {
-    weak private var view:View!;
-    
-    required init(view:View) {
-        self.view = view;
-        
+class Controller: NSObject, ControllerProtocol, InjectionProtocol, InjectionHandlerProtocol {
+    override init() {
         super.init()
+        
+        InjectionManager.instance.injection(injector: self)
+        
+        onInit()
     }
     
-    deinit {
-        view = nil
+    func onInit() {
+        
     }
     
     func onInjection() {
-        print("onInjection \(String(describing: self))")
+//        print("onInjection \(String(describing: self))")
     }
 }

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Alexey Oleksandrovich. All rights reserved.
 //
 
-class Model: Injection {
+import Foundation
+
+class Model: NSObject, InjectionProtocol {
     
 }

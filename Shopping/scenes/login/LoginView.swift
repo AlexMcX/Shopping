@@ -13,13 +13,12 @@ class LoginView: View {
     @IBOutlet weak var emailLabel: UITextField!
     @IBOutlet weak var passLabel: UITextField!
     
-    override var controllerCLS: Controller.Type { return LoginController.self }
+    @objc dynamic var controller:LoginController!
     
     @IBAction func login (sender: UIButton!) {
-//        guard let username = emailLabel.text, let password = passLabel.text else { return }
-//        let auth:AuthService = AuthService()
-//        
-//        auth.basic(route: .AUTH, username: username, password: password)
+        guard let username = emailLabel.text, let password = passLabel.text else { return }
+        
+        controller.login(route: .AUTH, username: username, password: password)
     }
 
 }

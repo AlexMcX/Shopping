@@ -9,16 +9,10 @@
 import Foundation
 
 class LoginController: Controller {
-//    @objc dynamic var aurhService:AuthService!
-//    @objc dynamic var httpServce:HTTPService!
+    @objc dynamic var view:LoginView!
+    @objc dynamic var authService:AuthService!
     
-    
-    
-    @objc dynamic var clientService:ClientDataService!
-    
-    var testInt:Int!
-    
-    override func onInit() {
-        
+    public func login(route:Route, username: String, password: String) {
+        authService.basic(route: .AUTH, username: username, password: password)
     }
 }

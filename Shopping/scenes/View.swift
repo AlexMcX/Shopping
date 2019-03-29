@@ -8,10 +8,7 @@
 
 import UIKit
 
-class View: UIViewController {
-    var controller:Controller!;
-    
-    var controllerCLS:Controller.Type { return Controller.self }
+class View: UIViewController, InjectionProtocol, InjectionHandlerProtocol {
 
     convenience init() {
         self.init(nibName: nil, bundle: nil);
@@ -20,20 +17,26 @@ class View: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
         
-        onInit();
+        initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
         
+        initialize();
+    }
+    
+    private func initialize() {
+        InjectionManager.instance.injection(injector: self)
+        
         onInit();
     }
     
-    private func onInit() {
-        createController();
+    func onInit() {
+        
     }
     
-    private func createController() {
-        controller = controllerCLS.init(view: self) as Controller
+    func onInjection() {
+        print("onInjection \(String(describing: self))")
     }
 }

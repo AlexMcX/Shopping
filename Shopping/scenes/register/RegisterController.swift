@@ -6,6 +6,8 @@
 //  Copyright © 2019 Alexey Oleksandrovich. All rights reserved.
 //
 
+import Foundation
+
 class RegisterController: Controller {
-    
+    @objc dynamic var view:RegisterView!
 }

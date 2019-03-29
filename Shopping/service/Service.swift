@@ -6,7 +6,22 @@
 //  Copyright © 2019 Alexey Oleksandrovich. All rights reserved.
 //
 
-class Service: Injection, InjectionHandlerProtocol {
+import Foundation
+
+class Service: NSObject, InjectionProtocol, InjectionHandlerProtocol {
+    
+    override init() {
+        super.init()
+        
+        InjectionManager.instance.injection(injector: self)
+        
+        onInit()
+    }
+    
+    func onInit() {
+        
+    }
+    
     func onInjection() {
         print("onInjection \(String(describing: self))")
     }
