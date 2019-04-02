@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0020AD225365D300210341 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0020AC225365D300210341 /* HTTPRequest.swift */; };
+		FA0020B02253791500210341 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0020AF2253791500210341 /* NSObject.swift */; };
+		FA0020B2225397B600210341 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0020B1225397B600210341 /* Bool.swift */; };
 		FA08E0FB224A2801007C4143 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08E0FA224A2801007C4143 /* String.swift */; };
 		FA08E0FD224A30CD007C4143 /* StringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08E0FC224A30CD007C4143 /* StringProtocol.swift */; };
 		FA08E0FF224A4B4B007C4143 /* InjectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08E0FE224A4B4B007C4143 /* InjectionManager.swift */; };
@@ -34,7 +37,6 @@
 		FAFAA8EB2248E2B00053692D /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAA8EA2248E2B00053692D /* RegisterController.swift */; };
 		FAFAA8EE2248F1B90053692D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAA8ED2248F1B90053692D /* Model.swift */; };
 		FAFAA8F02248F1FD0053692D /* ControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAA8EF2248F1FD0053692D /* ControllerProtocol.swift */; };
-		FAFAA8F32248FDC60053692D /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAA8F22248FDC60053692D /* Injection.swift */; };
 		FAFDCC15224B88AE000723DE /* client.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFDCC13224B88AE000723DE /* client.xcdatamodeld */; };
 		FAFDCC39224B8D93000723DE /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFDCC38224B8D93000723DE /* DataService.swift */; };
 		FAFDCC3C224B9016000723DE /* InjectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFDCC3B224B9016000723DE /* InjectionProtocol.swift */; };
@@ -59,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA0020AC225365D300210341 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		FA0020AF2253791500210341 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		FA0020B1225397B600210341 /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		FA08E0FA224A2801007C4143 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		FA08E0FC224A30CD007C4143 /* StringProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocol.swift; sourceTree = "<group>"; };
 		FA08E0FE224A4B4B007C4143 /* InjectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionManager.swift; sourceTree = "<group>"; };
@@ -92,7 +97,6 @@
 		FAFAA8EA2248E2B00053692D /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		FAFAA8ED2248F1B90053692D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		FAFAA8EF2248F1FD0053692D /* ControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerProtocol.swift; sourceTree = "<group>"; };
-		FAFAA8F22248FDC60053692D /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
 		FAFDCC14224B88AE000723DE /* client.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = client.xcdatamodel; sourceTree = "<group>"; };
 		FAFDCC38224B8D93000723DE /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		FAFDCC3B224B9016000723DE /* InjectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectionProtocol.swift; sourceTree = "<group>"; };
@@ -124,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0020AE225365D800210341 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				FA0020AC225365D300210341 /* HTTPRequest.swift */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		FA65C7B42242E8670036123A = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +236,7 @@
 		FA8F4CEF22466C3E0021BD4C /* http */ = {
 			isa = PBXGroup;
 			children = (
+				FA0020AE225365D800210341 /* assets */,
 				FACDCDFF2247DC0D0073B9C6 /* HTTPService.swift */,
 			);
 			path = http;
@@ -235,6 +248,8 @@
 				FAB0FC1722497CF500FD8C22 /* Optional.swift */,
 				FA08E0FA224A2801007C4143 /* String.swift */,
 				FA08E0FC224A30CD007C4143 /* StringProtocol.swift */,
+				FA0020AF2253791500210341 /* NSObject.swift */,
+				FA0020B1225397B600210341 /* Bool.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -305,7 +320,6 @@
 		FAFDCC3A224B8FBE000723DE /* injection */ = {
 			isa = PBXGroup;
 			children = (
-				FAFAA8F22248FDC60053692D /* Injection.swift */,
 				FAFDCC3B224B9016000723DE /* InjectionProtocol.swift */,
 			);
 			path = injection;
@@ -451,13 +465,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAFAA8F32248FDC60053692D /* Injection.swift in Sources */,
 				FAFDCC3C224B9016000723DE /* InjectionProtocol.swift in Sources */,
 				FA44F013224D8429008FAF13 /* Client+CoreDataProperties.swift in Sources */,
 				FAFAA8E92248E28B0053692D /* RegisterView.swift in Sources */,
 				FA08E0FF224A4B4B007C4143 /* InjectionManager.swift in Sources */,
 				FA65C7C32242E8670036123A /* LoginView.swift in Sources */,
 				FA8F4CE822466B330021BD4C /* LoginController.swift in Sources */,
+				FA0020AD225365D300210341 /* HTTPRequest.swift in Sources */,
 				FAFDCC39224B8D93000723DE /* DataService.swift in Sources */,
 				FA8F4CEC22466BA20021BD4C /* Controller.swift in Sources */,
 				FAFDCC15224B88AE000723DE /* client.xcdatamodeld in Sources */,
@@ -468,10 +482,12 @@
 				FAB0FC1822497CF500FD8C22 /* Optional.swift in Sources */,
 				FA08E0FD224A30CD007C4143 /* StringProtocol.swift in Sources */,
 				FAFAA8EE2248F1B90053692D /* Model.swift in Sources */,
+				FA0020B02253791500210341 /* NSObject.swift in Sources */,
 				FA8F4CF32246C86C0021BD4C /* Rest.swift in Sources */,
 				FA65C7C12242E8670036123A /* AppDelegate.swift in Sources */,
 				FA08E0FB224A2801007C4143 /* String.swift in Sources */,
 				FAFAA8F02248F1FD0053692D /* ControllerProtocol.swift in Sources */,
+				FA0020B2225397B600210341 /* Bool.swift in Sources */,
 				FAFAA8EB2248E2B00053692D /* RegisterController.swift in Sources */,
 				FA280BC6224C1EB500BBA363 /* ProfileDataService.swift in Sources */,
 				FACDCE002247DC0D0073B9C6 /* HTTPService.swift in Sources */,

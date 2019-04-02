@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class DataService: Service {
-    private var managed:NSManagedObject!
+    private var managedObject:NSManagedObject!
     
     private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "client")
@@ -23,7 +23,7 @@ class DataService: Service {
         return container
     }()
     
-    func initModel(entityName:String) {
+    func initModel(entityName:String, managedObjectClass:NSManagedObject.Type) {
         var model:InjectionProtocol
         let managedContext = persistentContainer.viewContext
         
@@ -32,20 +32,30 @@ class DataService: Service {
         do {
             let result = try managedContext.fetch(fetchRequest)
             
-//            print("result.count: ", result.count)
-            
             if (result.count == 0) {
-                model = Client(context: managedContext)
+                model = (managedObjectClass.init(context: managedContext)) as! InjectionProtocol
+                
+                print("DataService::initModel - create new model \(entityName)")
             }else {
                 model = result[0] as! InjectionProtocol
+                
+                print("DataService::initModel - read model \(entityName)")
             }
+            
+            managedObject = model as? NSManagedObject
             
             InjectionManager.instance.registerInjection(injection: model)
         }catch {
             print("DataService:: \(error)");
         }
-        
-//        return nil
+    }
+    
+    private func updateModel() {
+//        let changes = managedObject.changedValues()
+//        
+//        print("HAS CHANGES: count:\(changes.count)")
+//        
+//        print(managedObject)
     }
     
 //    private func createEntity(entityName: String) {
@@ -94,6 +104,8 @@ class DataService: Service {
     
     // PUBLIC
     public func save() {
+        updateModel()
+        
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

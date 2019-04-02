@@ -37,6 +37,6 @@ class View: UIViewController, InjectionProtocol, InjectionHandlerProtocol {
     }
     
     func onInjection() {
-        print("onInjection \(String(describing: self))")
+        
     }
 }

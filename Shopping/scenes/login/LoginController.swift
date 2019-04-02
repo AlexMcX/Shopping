@@ -11,8 +11,11 @@ import Foundation
 class LoginController: Controller {
     @objc dynamic var view:LoginView!
     @objc dynamic var authService:AuthService!
+    @objc dynamic var clientService:ClientDataService!
     
     public func login(route:Route, username: String, password: String) {
-        authService.basic(route: .AUTH, username: username, password: password)
+        authService.basic(username: username, password: password) { (result) in
+            
+        }
     }
 }

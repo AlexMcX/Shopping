@@ -18,5 +18,4 @@ extension Client {
     }
 
     @NSManaged public var uuid: String?
-
 }

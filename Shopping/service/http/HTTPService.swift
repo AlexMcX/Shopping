@@ -11,15 +11,15 @@ import UIKit
 class HTTPService: Service {
     
     // PUBLIC
-    public func request(route:Route, parameters:[String: String]? = nil, headerValues:[String: String]? = nil) {
-        requestRoute(route, parameters, headerValues);
+    public func request(with: HTTPRequest, completionHandler: @escaping (Any?, Error?) -> Void) {
+        requestRoute(with, completionHandler)
     }
     
     // PRIVATE
-    private func requestRoute(_ route:Route, _ parameters: [String: String]?, _ headerValues: [String: String]? = nil) {
+    private func requestRoute(_ with: HTTPRequest, _ completionHandler: @escaping (_ json: Any?, _ error:Error?) -> Void) {
         let session = URLSession.shared;
         
-        guard let request = getRequest(route, parameters, headerValues) else { return }
+        guard let request = getRequest(with) else { return }
         
         session.dataTask(with: request) { (data, response, error) in
             guard   let data = data,
@@ -27,28 +27,34 @@ class HTTPService: Service {
                     (200..<300) ~= response.statusCode,
                     error == nil else { return }
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
+
                 
-                print("GET data as json: \(json)")
+                let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+                
+                print("GET data as json: \(String(describing: json))")
+                
+                completionHandler(json, nil)
             }catch{
                 print("Get parse data error: \(error)")
+                
+                completionHandler(nil, error)
             }
             }.resume()
     }
     
-    private func getRequest(_ route:Route, _ parameters: [String: String]?, _ headerValues: [String: String]? = nil) -> URLRequest? {
+    private func getRequest(_ httpReguest: HTTPRequest) -> URLRequest? {
         var result:URLRequest;
         
-        guard let url = URL(string: route.path) else { return nil}
+        guard let url = URL(string: httpReguest.route.path) else { return nil}
         
         result = URLRequest(url: url,
                             cachePolicy: .useProtocolCachePolicy,
                             timeoutInterval: 5.0);
         
-        result.httpMethod = route.method.rawValue;
+        result.httpMethod = httpReguest.route.method.rawValue;
         
-        if let params = parameters {
-            switch route.method {
+        if let params = httpReguest.parameters {
+            switch httpReguest.route.method {
                 case .POST:
                         do {
                             result.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -61,9 +67,9 @@ class HTTPService: Service {
                             print("ERROR: HttpService::getRequest \(error)");
                         }
                 case .GET:
-                        var components = URLComponents(string: route.path)!;
+                        var components = URLComponents(string: httpReguest.route.path)!;
                     
-                        if let params = parameters {
+                        if let params = httpReguest.parameters {
                             components.queryItems = params.map { (key, value) in
                                 URLQueryItem(name: key, value: value)
                             }
@@ -73,9 +79,9 @@ class HTTPService: Service {
             }
         }
         
-        guard (headerValues != nil) else { return result; }
+        guard (httpReguest.headerValues != nil) else { return result; }
         
-        for (key, value) in headerValues! {
+        for (key, value) in httpReguest.headerValues! {
             result.addValue(value, forHTTPHeaderField: key)
         }
         

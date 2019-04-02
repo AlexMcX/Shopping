@@ -7,12 +7,24 @@
 //
 
 import Foundation
+import CoreData
 
 class ClientDataService: DataService {
 
     @objc dynamic var client:Client!
+    @objc dynamic var authService:AuthService!
     
     override func onInit() {
-        initModel(entityName: "Client")
+        initModel(entityName: "Client", managedObjectClass: Client.self)
+    }
+    
+    override func onInjection() {
+        authService.uuid(value: client.uuid) { () in
+            
+        }
+    }
+    
+    public func update(json: [String:Any]) {
+        client.setValuesForKeysSafe(json)
     }
 }

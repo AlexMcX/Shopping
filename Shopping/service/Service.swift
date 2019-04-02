@@ -23,6 +23,6 @@ class Service: NSObject, InjectionProtocol, InjectionHandlerProtocol {
     }
     
     func onInjection() {
-        print("onInjection \(String(describing: self))")
+        
     }
 }

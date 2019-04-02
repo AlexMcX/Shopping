@@ -35,7 +35,7 @@ class InjectionManager: InjectionManagerProtocol {
         
         let property = Mirror(reflecting: injector).children
         
-        print("       InjectionManager::injection \(injector)")
+//        print("       InjectionManager::injection \(injector)")
         
         for (key, value) in property {
             let valueType = type(of: value)
